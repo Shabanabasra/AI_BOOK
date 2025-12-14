@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROS 2 Fundamentals - AI Book</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>AI Book: Physical AI and Robotics</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Table of Contents</a>
+        <a href="01-Introduction-Physical-AI.html">Chapter 1</a>
+        <a href="02-Basics-Humanoid-Robotics.html">Chapter 2</a>
+        <a href="03-ROS2-Fundamentals.html">Chapter 3</a>
+        <a href="04-Digital-Twin-Simulation.html">Chapter 4</a>
+        <a href="05-AI-in-Robotics-Applications.html">Chapter 5</a>
+        <a href="06-Future-Trends-in-Physical-AI.html">Chapter 6</a>
+    </nav>
+
+    <div class="container">
+        <p><h1>ROS 2 Fundamentals</h1></p>
+<br>
+<p>ROS 2 (Robot Operating System 2) is an open-source framework for building robot applications. It provides tools, libraries, and conventions that help developers create complex robot behaviors without starting from scratch. ROS 2 improves on the original ROS by supporting real-time systems, multiple platforms, and better security.</p>
+<br>
+<p><h2>Learning Objectives</h2><div class="learning-objectives"></p>
+<p>By the end of this chapter, you will be able to:</p>
+<ul>
+<ul>
+<li>Understand the purpose and benefits of ROS 2</li><li>Identify key components of a ROS 2 system</li><li>Learn basic ROS 2 concepts like nodes, topics, and messages</li><li>Practice simple hands-on exercises using ROS 2 commands</li></ul>
+</ul>
+<br>
+<p></div><h2>Key Concepts</h2><div class="key-concept"></p>
+<ul>
+<ul>
+<li><strong>Node:</strong> A process that performs computation. Each robot function can run in a separate node.</li><li><strong>Topic:</strong> A named channel used for sending messages between nodes.</li><li><strong>Message:</strong> The data structure used to communicate over topics.</li><li><strong>Publisher:</strong> A node that sends messages on a topic.</li><li><strong>Subscriber:</strong> A node that receives messages from a topic.</li><li><strong>Service:</strong> A request/reply mechanism for synchronous communication between nodes.</li><li><strong>Package:</strong> A collection of nodes, libraries, and configuration files for a robot application.</li><li><strong>Launch File:</strong> A file that starts multiple nodes and sets up their configuration automatically.</li></ul>
+</ul>
+<br>
+<p></div><h2>Hands-on Examples / Exercises</h2><div class="exercise-box"></p>
+<p><li class="numbered"><strong>Create a ROS 2 Workspace:</strong></li></p>
+<pre><code>mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws
+colcon build
+source install/setup.bash
+</code></pre>
+
+<li class="numbered"><strong>Create a Simple Publisher Node:</strong> Write a basic publisher that sends "Hello World" messages to a topic called "chatter".</li>
+
+<li class="numbered"><strong>Create a Subscriber Node:</strong> Develop a subscriber that listens to the "chatter" topic and prints received messages.</li>
+
+<li class="numbered"><strong>Run Publisher and Subscriber Together:</strong> Launch both nodes simultaneously to see message passing in action.</li>
+
+<li class="numbered"><strong>Use Built-in Tools:</strong> Experiment with <code>ros2 topic list</code> and <code>ros2 topic echo</code> to inspect active topics in your system.</li>
+
+</div><h2>Summary / Key Takeaways</h2><div class="summary-box">
+<ul>
+<li>ROS 2 provides a flexible framework for developing robot applications with standardized communication patterns.</li><li>Nodes, topics, and messages form the core communication architecture of ROS 2.</li><li>The pub/sub model enables decoupled, modular robot software design.</li><li>Workspaces and packages help organize code for complex robotic systems.</li><li>ROS 2 supports real-time systems, multiple platforms, and enhanced security compared to ROS 1.</li></ul>
+        <div class="chapter-nav"><a href="02-Basics-Humanoid-Robotics.html">&laquo; Previous: Basics of Humanoid Robotics</a><a href="04-Digital-Twin-Simulation.html">Next: Digital Twin Simulation &raquo;</a></div>
+    </div>
+
+    <footer>
+        <p>AI Book: Physical AI and Robotics - Educational Content</p>
+    </footer>
+</body>
+</html>

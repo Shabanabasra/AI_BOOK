@@ -1,0 +1,90 @@
+openapi: 3.0.0
+info:
+  title: AI_BOOK Chatbot API
+  version: 1.0.0
+  description: API for the AI_BOOK RAG chatbot, providing context-aware answers from the textbook content.
+
+servers:
+  - url: /api/v1
+    description: Primary API server
+
+paths:
+  /chatbot/ask:
+    post:
+      summary: Ask the RAG chatbot a question
+      operationId: askChatbot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatbotQuery'
+      responses:
+        '200':
+          description: Successful response from the chatbot
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatbotResponse'
+        '400':
+          description: Invalid query or missing parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    ChatbotQuery:
+      type: object
+      required:
+        - text
+      properties:
+        text:
+          type: string
+          description: The user's question or statement.
+          example: "What is Physical AI?"
+        context_text:
+          type: string
+          nullable: true
+          description: Optional selected text from the book to provide additional context.
+          example: "Physical AI refers to the intelligence exhibited by physical systems, such as robots."
+
+    ChatbotResponse:
+      type: object
+      required:
+        - response_text
+        - source_references
+      properties:
+        response_text:
+          type: string
+          description: The generated answer from the chatbot.
+          example: "Physical AI is the intelligence demonstrated by physical systems, like robots, allowing them to interact with the real world."
+        source_references:
+          type: array
+          description: List of references to the book content used to generate the response.
+          items:
+            type: string
+            example: "Chapter 1: Introduction, Page 15"
+
+    ErrorResponse:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+          description: Error code.
+          example: 400
+        message:
+          type: string
+          description: A human-readable error message.
+          example: "Missing required field: text"

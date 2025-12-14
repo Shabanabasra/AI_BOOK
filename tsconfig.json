@@ -1,8 +1,8 @@
 {
-  // This file is not used in compilation. It is here just for a nice editor experience.
+  "$schema": "./schemas/tsconfig.schema.json",
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "baseUrl": "."
+    "ignoreDeprecations": "6.0"
   },
   "exclude": [".docusaurus", "build"]
 }

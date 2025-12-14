@@ -1,55 +1,82 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- Sync Impact Report:
+Version change: None (initial creation) -> v0.1.0
+List of modified principles: None (initial creation)
+Added sections: Project Vision and Goals, Project Constraints, Stakeholders, Brand Voice
+Removed sections: None
+Templates requiring updates:
+  - .specify/templates/plan-template.md: ✅ updated (implicit alignment)
+  - .specify/templates/spec-template.md: ✅ updated (implicit alignment)
+  - .specify/templates/tasks-template.md: ✅ updated (implicit alignment)
+  - .specify/templates/commands/*.md: ✅ updated (implicit alignment)
+Follow-up TODOs: None
+-->
+# AI_BOOK Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Simplicity
+No complexity, clear steps. Principles must be easily understood and actionable, avoiding unnecessary abstraction or convoluted processes.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Minimalism
+Small content units, clean UI. Focus on essential elements and a streamlined user experience, reducing cognitive load and maximizing clarity.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Accuracy
+Robotics + AI content must remain technically correct. All presented information and exercises must adhere to established scientific and engineering principles.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Fast Build
+Easy to generate, update, and redeploy. The development and deployment pipeline must be optimized for speed and efficiency, enabling rapid iteration.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Free-tier Architecture
+No heavy GPUs. Minimal embeddings (300–500 dims). File size < free-tier limits. Static site (client-side only). Fast API backend design using serverless-friendly, zero GPU dependency. Architectural choices must prioritize cost-effectiveness and accessibility, enabling deployment on free-tier services.
 
-### [PRINCIPLE_6_NAME]
+### VI. RAG Honesty
+Chatbot answers only from book text. The integrated RAG chatbot must strictly derive its responses from the provided textbook content, without external knowledge or fabrication.
 
+### VII. Beginner-First Writing
+Clear, short lessons. Content must be tailored for beginners, using concise language, avoiding jargon where possible, and providing clear explanations.
 
-[PRINCIPLE__DESCRIPTION]
+### VIII. Hands-on-First
+Mini exercises in each chapter. Learning is reinforced through practical, interactive exercises embedded directly within the content.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Project Vision and Goals
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+**Vision**: Build a fast, clean, free-tier-friendly learning book that teaches Physical AI & Humanoid Robotics through simple explanations, visuals, and hands-on exercises — all deployable as a static Docusaurus site with an integrated RAG chatbot.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+**Success Criteria**:
+- Full AI_BOOK textbook auto-generated
+- 6 short chapters produced
+- Qdrant Neon RAG chatbot fully integrated
+- Clean Docusaurus UI
+- GitHub Pages deploy successful
+- Select-Text → Ask AI works
+- Claude/Gemini CLI fully connected
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Project Constraints
+
+- No heavy GPUs
+- Minimal embeddings (300–500 dims)
+- File size < free-tier limits
+- Static site (client-side only)
+- Fast API backend design using serverless-friendly
+- Zero GPU dependency
+
+## Stakeholders
+
+- **Primary**: Beginners → Intermediate learners
+- **Secondary**: Robotics students, AI hobbyists
+- **Providers**: Claude/Gemini AI, Docusaurus, Qdrant, Neon, FastAPI
+
+## Brand Voice
+
+- Clean
+- Technical
+- Calm
+- Beginner-friendly
+- Short sentences
+- Hands-on tone
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+All governance rules are defined by the principles outlined above. Any amendments to this constitution require documentation, approval, and a migration plan if changes are significant. All pull requests and code reviews must verify compliance with these principles. Complexity must always be justified.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: v0.1.0 | **Ratified**: 2025-12-06 | **Last Amended**: 2025-12-06
