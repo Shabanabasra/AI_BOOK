@@ -1,6 +1,6 @@
 import { ChatRequest, ChatResponse, AskFromSelectionRequest, AskFromSelectionResponse, RetrievedDocument } from '../types';
 
-const API_BASE_URL = 'http://127.0.0.1:8000/api/v1';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ? `${process.env.NEXT_PUBLIC_API_URL}/api/v1` : 'http://127.0.0.1:8000/api/v1';
 
 // Define the response type for the new CCR-compliant chat endpoint
 interface CCRChatResponse {
@@ -14,7 +14,8 @@ interface CCRChatResponse {
 export const sendChatMessage = async (question: string): Promise<ChatResponse> => {
   try {
     // Use the new CCR-compliant endpoint at the root level
-    const response = await fetch('http://127.0.0.1:8000/chat', {
+    const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+    const response = await fetch(`${backendUrl}/chat`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -50,7 +51,8 @@ export const sendChatMessage = async (question: string): Promise<ChatResponse> =
 export const sendChatMessageWithDocuments = async (question: string) => {
   try {
     // Use the new CCR-compliant endpoint at the root level
-    const response = await fetch('http://127.0.0.1:8000/chat', {
+    const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+    const response = await fetch(`${backendUrl}/chat`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
