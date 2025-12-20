@@ -5,14 +5,16 @@ from pathlib import Path
 import markdown
 from bs4 import BeautifulSoup
 import re
+from .chunker import SemanticChunker, DocumentChunk
 
 class MarkdownLoader:
     """
     Loads markdown files from Docusaurus documentation structure
     """
 
-    def __init__(self, docs_path: str = "../../docs"):
+    def __init__(self, docs_path: str = "../../docs", chunk_size: int = 1000, overlap_size: int = 200):
         self.docs_path = docs_path
+        self.chunker = SemanticChunker(max_chunk_size=chunk_size, overlap_size=overlap_size)
 
     def load_documents(self) -> List[Dict[str, str]]:
         """
@@ -41,6 +43,7 @@ class MarkdownLoader:
                 # Convert markdown to plain text for better embedding
                 plain_text = self._markdown_to_text(clean_content)
 
+                # Create document
                 document = {
                     "content": plain_text,
                     "title": title,
@@ -52,6 +55,54 @@ class MarkdownLoader:
 
             except Exception as e:
                 print(f"Error loading document {file_path}: {str(e)}")
+                continue
+
+        return documents
+
+    def load_and_chunk_documents(self) -> List[Dict[str, str]]:
+        """
+        Load all markdown documents and chunk them into semantic pieces
+        Returns a list of dictionaries with chunked content and metadata
+        """
+        documents = []
+
+        # Find all markdown files in the docs directory
+        md_files = glob.glob(f"{self.docs_path}/**/*.md", recursive=True)
+        mdx_files = glob.glob(f"{self.docs_path}/**/*.mdx", recursive=True)
+
+        all_files = md_files + mdx_files
+
+        for file_path in all_files:
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+
+                # Extract title from the markdown content
+                title = self._extract_title(content)
+
+                # Clean the content by removing frontmatter if present
+                clean_content = self._remove_frontmatter(content)
+
+                # Convert markdown to plain text for better embedding
+                plain_text = self._markdown_to_text(clean_content)
+
+                # Chunk the document
+                chunks = self.chunker.chunk_text(plain_text, title, file_path)
+
+                # Convert chunks to the expected format
+                for chunk in chunks:
+                    document = {
+                        "content": chunk.content,
+                        "title": f"{title} - Chunk {chunk.chunk_index + 1}/{chunk.total_chunks}",
+                        "source": file_path,
+                        "file_path": file_path,
+                        "chunk_index": chunk.chunk_index,
+                        "total_chunks": chunk.total_chunks
+                    }
+                    documents.append(document)
+
+            except Exception as e:
+                print(f"Error processing document {file_path}: {str(e)}")
                 continue
 
         return documents

@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'AI Book',
+  tagline: 'Physical AI & Humanoid Robotics Textbook',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -41,6 +41,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          // Route base path changed from default '/docs' to have AI book as main content
+          routeBasePath: '/',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -83,9 +85,9 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'aiBookSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'AI Book',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
@@ -99,28 +101,28 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'AI Book',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Introduction',
+              to: '/AI_BOOK/01-Introduction-Physical-AI',
+            },
+            {
+              label: 'All Chapters',
+              to: '/AI_BOOK/01-Introduction-Physical-AI', // Points to first chapter which has navigation
             },
           ],
         },
         {
-          title: 'Community',
+          title: 'Resources',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'GitHub',
+              href: 'https://github.com/facebook/docusaurus',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: 'Docusaurus',
+              href: 'https://docusaurus.io',
             },
           ],
         },
@@ -138,7 +140,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} AI Book Project. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

@@ -3,8 +3,8 @@ from pydantic import BaseModel
 from typing import List, Dict, Optional
 import asyncio
 import logging
-from backend.rag.retriever import Retriever
-from backend.rag.generator import Generator
+from rag.retriever import Retriever
+from rag.generator import Generator
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 router = APIRouter()
 
 # Initialize RAG components
-retriever = Retriever()
+retriever = Retriever()  # Will use QDRANT_COLLECTION from env, defaults to "AI_BOOK"
 generator = Generator()
 
 class AskFromSelectionRequest(BaseModel):
@@ -24,8 +24,32 @@ class AskFromSelectionRequest(BaseModel):
 
 class AskFromSelectionResponse(BaseModel):
     answer: str
+    references: List[str]
     context_chunks: List[Dict]
     session_id: str
+
+def _extract_references_from_context(context_chunks: List[Dict]) -> List[str]:
+    """
+    Extract references from context chunks for frontend compatibility
+    """
+    references = []
+    for chunk in context_chunks:
+        # Create a reference string using title and source
+        title = chunk.get('title', 'Untitled')
+        source = chunk.get('source', chunk.get('file_path', 'Unknown source'))
+
+        # Extract filename from path if it's a file path
+        if source and '/' in source:
+            source = source.split('/')[-1]
+        elif source and '\\' in source:
+            source = source.split('\\')[-1]
+
+        reference = f"{title} ({source})"
+        if reference not in references:  # Avoid duplicate references
+            references.append(reference)
+
+    return references
+
 
 @router.post("/ask-from-selection", response_model=AskFromSelectionResponse)
 async def ask_from_selection_endpoint(request: AskFromSelectionRequest):
@@ -52,6 +76,9 @@ async def ask_from_selection_endpoint(request: AskFromSelectionRequest):
             context_chunks
         )
 
+        # Create references for frontend
+        references = _extract_references_from_context(context_chunks)
+
         # Create a simple session ID if not provided
         session_id = request.session_id or f"selection_session_{hash(request.selected_text + request.question) % 10000}"
 
@@ -60,6 +87,7 @@ async def ask_from_selection_endpoint(request: AskFromSelectionRequest):
 
         return AskFromSelectionResponse(
             answer=answer,
+            references=references,
             context_chunks=context_chunks,
             session_id=session_id
         )

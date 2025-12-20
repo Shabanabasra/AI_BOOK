@@ -12,7 +12,7 @@ class Embedder:
     Embedding generator using Cohere API
     """
 
-    def __init__(self, model_name: str = "embed-multilingual-v2.0", max_batch_size: int = 96):
+    def __init__(self, model_name: str = "embed-english-v3.0", max_batch_size: int = 96):
         self.model_name = model_name
         self.max_batch_size = max_batch_size
         self.api_key = os.getenv("COHERE_API_KEY")
@@ -45,7 +45,7 @@ class Embedder:
             except Exception as e:
                 print(f"Error generating embeddings for batch: {str(e)}")
                 # Return zero vectors as fallback for failed embeddings
-                fallback_embeddings = [[0.0] * 384 for _ in range(len(batch))]
+                fallback_embeddings = [[0.0] * 1024 for _ in range(len(batch))]
                 all_embeddings.extend(fallback_embeddings)
 
         return all_embeddings
@@ -55,7 +55,7 @@ class Embedder:
         Generate embedding for a single text
         """
         embeddings = self.embed_texts([text])
-        return embeddings[0] if embeddings else [0.0] * 384
+        return embeddings[0] if embeddings else [0.0] * 1024
 
     def cosine_similarity(self, vec1: List[float], vec2: List[float]) -> float:
         """
@@ -77,9 +77,11 @@ class Embedder:
     def get_embedding_dimension(self) -> int:
         """
         Return the dimension of the embeddings
-        For Cohere's embed-multilingual-v2.0, it's 384
+        For Cohere's embed-english-v3.0, it's 1024 for float or 384 for int8
+        Using input_type="search_document" with embed-english-v3.0 returns 1024 dimensions
         """
-        return 384
+        # The embed-english-v3.0 model with input_type="search_document" returns 1024 dimensions
+        return 1024
 
 # For testing
 if __name__ == "__main__":

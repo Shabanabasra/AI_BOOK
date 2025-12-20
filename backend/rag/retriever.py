@@ -13,8 +13,9 @@ class Retriever:
     Qdrant-based retriever for semantic search
     """
 
-    def __init__(self, collection_name: str = "ai_book_docs"):
-        self.collection_name = collection_name
+    def __init__(self, collection_name: str = None):
+        # Use environment variable for collection name, default to "AI_BOOK" if not specified
+        self.collection_name = collection_name or os.getenv("QDRANT_COLLECTION", "AI_BOOK")
         self.qdrant_url = os.getenv("QDRANT_URL")
         self.qdrant_api_key = os.getenv("QDRANT_API_KEY")
 

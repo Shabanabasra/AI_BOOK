@@ -2,46 +2,37 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# AI Book: Physical AI & Humanoid Robotics
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Welcome to the **AI Book**, a comprehensive textbook on Physical AI and Humanoid Robotics. This book covers fundamental concepts, practical applications, and future trends in the field of embodied artificial intelligence.
 
-## Getting Started
+## About This Book
 
-Get started by **creating a new site**.
+This textbook is designed to provide both theoretical foundations and hands-on learning experiences in Physical AI and Humanoid Robotics. Each chapter includes:
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+- Core concepts and principles
+- Practical examples and exercises
+- Real-world applications
+- Mini glossaries for key terms
+- Quizzes to test your understanding
 
-### What you'll need
+## Chapters
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+Navigate through the complete textbook using the sidebar or explore the chapters below:
 
-## Generate a new site
+- [Chapter 1: Introduction to Physical AI](./AI_BOOK/01-Introduction-Physical-AI.md)
+- [Chapter 2: Basics of Humanoid Robotics](./AI_BOOK/02-Basics-Humanoid-Robotics.md)
+- [Chapter 3: ROS 2 Fundamentals](./AI_BOOK/03-ROS2-Fundamentals.md)
+- [Chapter 4: Digital Twin Simulation](./AI_BOOK/04-Digital-Twin-Simulation.md)
+- [Chapter 5: AI in Robotics Applications](./AI_BOOK/05-AI-in-Robotics-Applications.md)
+- [Chapter 6: Future Trends in Physical AI](./AI_BOOK/06-Future-Trends-in-Physical-AI.md)
 
-Generate a new Docusaurus site using the **classic template**.
+## Interactive Learning
 
-The classic template will automatically be added to your project after you run the command:
+This book features an integrated AI assistant that allows you to:
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+- Select text and ask questions about specific content
+- Get explanations based on the book's material
+- Explore related concepts and applications
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+To use the AI assistant, simply select any text in the book and click on the chat interface that appears.

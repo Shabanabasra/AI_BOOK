@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Import API routers
-from backend.api.chat import router as chat_router
-from backend.api.ask import router as ask_router
+from api.chat import router as chat_router
+from api.ask import router as ask_router
 
 app = FastAPI(
     title="AI_BOOK RAG Chatbot API",
