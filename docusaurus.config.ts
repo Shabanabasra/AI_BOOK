@@ -105,11 +105,11 @@ const config: Config = {
           items: [
             {
               label: 'Introduction',
-              to: '/AI_BOOK/01-Introduction-Physical-AI',
+              to: '/AI_BOOK/Introduction-Physical-AI',
             },
             {
               label: 'All Chapters',
-              to: '/AI_BOOK/01-Introduction-Physical-AI', // Points to first chapter which has navigation
+              to: '/AI_BOOK/Introduction-Physical-AI', // Points to first chapter which has navigation
             },
           ],
         },

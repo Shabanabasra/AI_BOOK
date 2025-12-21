@@ -22,12 +22,12 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'AI Book: Physical AI & Humanoid Robotics',
       items: [
-        'AI_BOOK/01-Introduction-Physical-AI',
-        'AI_BOOK/02-Basics-Humanoid-Robotics',
-        'AI_BOOK/03-ROS2-Fundamentals',
-        'AI_BOOK/04-Digital-Twin-Simulation',
-        'AI_BOOK/05-AI-in-Robotics-Applications',
-        'AI_BOOK/06-Future-Trends-in-Physical-AI'
+        'AI_BOOK/Introduction-Physical-AI',
+        'AI_BOOK/Basics-Humanoid-Robotics',
+        'AI_BOOK/ROS2-Fundamentals',
+        'AI_BOOK/Digital-Twin-Simulation',
+        'AI_BOOK/AI-in-Robotics-Applications',
+        'AI_BOOK/Future-Trends-in-Physical-AI'
       ],
     },
   ],
