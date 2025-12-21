@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "SlashCommand(/sp.specify)",
-      "Bash(git fetch:*)"
+      "Bash(git fetch:*)",
+      "Bash(copy ...env .env)",
+      "Bash(npx docusaurus clear)",
+      "Bash(npm run build)",
+      "Bash(git add .)"
     ],
     "deny": [],
     "ask": []
