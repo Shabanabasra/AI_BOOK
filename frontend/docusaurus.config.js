@@ -1,19 +1,22 @@
-module.exports = {
+import { defineConfig } from '@docusaurus/types';
+
+export default defineConfig({
   title: 'AI Book',
-  tagline: 'Physical AI & Humanoid Robotics Textbook',
-  url: 'https://YOUR-VERCEL-URL.vercel.app',
+  tagline: 'Physical AI & Humanoid Robotics',
+  url: 'https://your-vercel-site.vercel.app',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-
+  organizationName: 'YourOrg', // Usually GitHub org/user
+  projectName: 'AI_BOOK', // Usually repo name
   presets: [
     [
-      'classic',
+      '@docusaurus/preset-classic',
       {
         docs: {
           path: 'docs',
-          routeBasePath: '/',
+          routeBasePath: '/', // Serve docs at site root
           sidebarPath: require.resolve('./sidebars.ts'),
         },
         blog: false,
@@ -23,4 +26,4 @@ module.exports = {
       },
     ],
   ],
-};
+});
