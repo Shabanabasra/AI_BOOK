@@ -18,7 +18,7 @@ const config: Config = {
   url: 'https://your-docusaurus-site.example.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/AI_BOOK/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -26,6 +26,7 @@ const config: Config = {
   projectName: 'docusaurus', // Usually your repo name.
 
   onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -105,11 +106,11 @@ const config: Config = {
           items: [
             {
               label: 'Introduction',
-              to: '/AI_BOOK/Introduction-Physical-AI',
+              to: '/Introduction-Physical-AI',
             },
             {
               label: 'All Chapters',
-              to: '/AI_BOOK/Introduction-Physical-AI', // Points to first chapter which has navigation
+              to: '/Introduction-Physical-AI', // Points to first chapter which has navigation
             },
           ],
         },
