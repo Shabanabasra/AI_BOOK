@@ -1,6 +1,4 @@
-import { defineConfig } from '@docusaurus/types';
-
-export default defineConfig({
+module.exports = {
   title: 'AI Book',
   tagline: 'Physical AI & Humanoid Robotics',
   url: 'https://your-vercel-site.vercel.app',
@@ -15,15 +13,17 @@ export default defineConfig({
       '@docusaurus/preset-classic',
       {
         docs: {
-          path: 'docs',
+          path: '../docs', // Point to the docs directory in the root
           routeBasePath: '/', // Serve docs at site root
-          sidebarPath: require.resolve('./sidebars.ts'),
+          sidebarPath: false, // Disable sidebar auto-generation for now to fix broken links
+          showLastUpdateTime: false,
+          showLastUpdateAuthor: false,
         },
         blog: false,
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/index.css'),
         },
       },
     ],
   ],
-});
+};

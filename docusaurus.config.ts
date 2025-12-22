@@ -41,8 +41,8 @@ const config: Config = {
       'classic',
       {
         docs: {
-          path: 'AI_BOOK/chapters', // Point to the chapters directory where the markdown files are
-          sidebarPath: './sidebars.ts',
+          path: 'docs', // Point to the docs directory where the intro.md is located
+          sidebarPath: './sidebars.ts', // Use the sidebar file
           // Route base path changed from default '/docs' to have AI book as main content
           routeBasePath: '/', // Serve docs at site root
           // Disable prev/next navigation to prevent broken links
@@ -86,7 +86,7 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'aiBookSidebar',
+          sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'AI Book',
         },
@@ -106,7 +106,7 @@ const config: Config = {
           items: [
             {
               label: 'Introduction',
-              to: '/introduction-physical-ai', // Updated to match actual file structure
+              to: '/intro', // Updated to match the actual intro.md file
             },
             {
               label: 'All Chapters',

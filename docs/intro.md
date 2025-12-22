@@ -20,12 +20,12 @@ This textbook is designed to provide both theoretical foundations and hands-on l
 
 Navigate through the complete textbook using the sidebar or explore the chapters below:
 
-- [Chapter 1: Introduction to Physical AI](/Introduction-Physical-AI)
-- [Chapter 2: Basics of Humanoid Robotics](/Basics-Humanoid-Robotics)
-- [Chapter 3: ROS 2 Fundamentals](/ROS2-Fundamentals)
-- [Chapter 4: Digital Twin Simulation](/Digital-Twin-Simulation)
-- [Chapter 5: AI in Robotics Applications](/AI-in-Robotics-Applications)
-- [Chapter 6: Future Trends in Physical AI](/Future-Trends-in-Physical-AI)
+- [Chapter 1: Introduction to Physical AI](./AI_BOOK/Introduction-Physical-AI)
+- [Chapter 2: Basics of Humanoid Robotics](./AI_BOOK/Basics-Humanoid-Robotics)
+- [Chapter 3: ROS 2 Fundamentals](./AI_BOOK/ROS2-Fundamentals)
+- [Chapter 4: Digital Twin Simulation](./AI_BOOK/Digital-Twin-Simulation)
+- [Chapter 5: AI in Robotics Applications](./AI_BOOK/AI-in-Robotics-Applications)
+- [Chapter 6: Future Trends in Physical AI](./AI_BOOK/Future-Trends-in-Physical-AI)
 
 ## Interactive Learning
 
