@@ -15,15 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://your-vercel-site.vercel.app', // Updated for Vercel deployment
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'YourOrg', // Updated for Vercel deployment
+  projectName: 'AI_BOOK', // Updated for Vercel deployment
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -41,9 +41,10 @@ const config: Config = {
       'classic',
       {
         docs: {
+          path: 'AI_BOOK/chapters', // Point to the chapters directory where the markdown files are
           sidebarPath: './sidebars.ts',
           // Route base path changed from default '/docs' to have AI book as main content
-          routeBasePath: '/',
+          routeBasePath: '/', // Serve docs at site root
           // Disable prev/next navigation to prevent broken links
           showLastUpdateAuthor: false,
           showLastUpdateTime: false,
@@ -77,9 +78,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'My Site',
+      title: 'AI Book',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'AI Book Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -91,7 +92,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/your-org/AI_BOOK',
           label: 'GitHub',
           position: 'right',
         },
@@ -105,11 +106,11 @@ const config: Config = {
           items: [
             {
               label: 'Introduction',
-              to: '/Introduction-Physical-AI',
+              to: '/introduction-physical-ai', // Updated to match actual file structure
             },
             {
               label: 'All Chapters',
-              to: '/Introduction-Physical-AI', // Points to first chapter which has navigation
+              to: '/', // Updated to point to root since routeBasePath is '/'
             },
           ],
         },
@@ -118,24 +119,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
-            },
-            {
-              label: 'Docusaurus',
-              href: 'https://docusaurus.io',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/your-org/AI_BOOK',
             },
           ],
         },

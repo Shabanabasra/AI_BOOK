@@ -1,3 +1,9 @@
+---
+id: ros2-fundamentals
+title: ROS 2 Fundamentals
+sidebar_label: ROS 2 Fundamentals
+---
+
 # ROS 2 Fundamentals
 
 ROS 2 (Robot Operating System 2) is an open-source framework for building robot applications. It provides tools, libraries, and conventions that help developers create complex robot behaviors without starting from scratch. ROS 2 improves on the original ROS by supporting real-time systems, multiple platforms, and better security.

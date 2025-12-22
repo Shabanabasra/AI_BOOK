@@ -1,3 +1,9 @@
+---
+id: table-of-contents
+title: Table of Contents
+sidebar_label: Table of Contents
+---
+
 # AI Book: Physical AI and Robotics - Table of Contents
 
 Welcome to the AI Book on Physical AI and Robotics! This collection of chapters covers fundamental concepts to advanced applications in the field of Physical AI and robotics.

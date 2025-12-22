@@ -1,3 +1,9 @@
+---
+id: future-trends-in-physical-ai
+title: Future Trends in Physical AI
+sidebar_label: Future Trends in Physical AI
+---
+
 # Future Trends in Physical AI
 
 Physical AI is evolving rapidly, with new technologies and research shaping the future of intelligent machines that interact with the physical world. Understanding upcoming trends can help students and professionals prepare for the next generation of robotics and AI systems.

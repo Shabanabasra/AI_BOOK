@@ -1,3 +1,9 @@
+---
+id: introduction-physical-ai
+title: Introduction to Physical AI
+sidebar_label: Introduction to Physical AI
+---
+
 # Introduction to Physical AI
 
 Physical AI represents an exciting frontier where artificial intelligence meets the physical world. Unlike traditional AI systems that operate purely in digital spaces, Physical AI involves AI systems that interact with, manipulate, and learn from the physical environment around us. This includes robots, autonomous vehicles, smart sensors, and other devices that bridge the gap between digital intelligence and tangible reality.

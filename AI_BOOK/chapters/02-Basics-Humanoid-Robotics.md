@@ -1,3 +1,9 @@
+---
+id: basics-humanoid-robotics
+title: Basics of Humanoid Robotics
+sidebar_label: Basics of Humanoid Robotics
+---
+
 # Basics of Humanoid Robotics
 
 Humanoid robotics is a branch of robotics that focuses on creating robots shaped like humans. These robots are designed to mimic human movements, behaviors, and interactions. They can walk, talk, sense their environment, and perform tasks similar to humans.

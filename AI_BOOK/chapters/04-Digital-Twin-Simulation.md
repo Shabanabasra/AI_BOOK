@@ -1,3 +1,9 @@
+---
+id: digital-twin-simulation
+title: Digital Twin Simulation
+sidebar_label: Digital Twin Simulation
+---
+
 # Digital Twin Simulation
 
 Digital Twin Simulation is a technique where a virtual model of a physical system is created to simulate its behavior in real-time. This allows engineers and researchers to monitor, analyze, and optimize the performance of machines or systems without directly interacting with the physical object.
