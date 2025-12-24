@@ -7,8 +7,8 @@ const config = {
   tagline: 'Comprehensive 13-Week Course for Industry Practitioners',
   favicon: 'img/favicon.ico',
 
-  // Updated deployment URL (Vercel)
-  url: 'https://vercel.com/shabanas-projects-fc5ed0bb/',
+  // Production URL (for GitHub Pages or generic deployment)
+  url: 'https://shabanabasra.github.io',
   baseUrl: '/',
 
   organizationName: 'Shabanabasra',
