@@ -6,7 +6,22 @@
       "Bash(copy ...env .env)",
       "Bash(npx docusaurus clear)",
       "Bash(npm run build)",
-      "Bash(git add .)"
+      "Bash(git add .)",
+      "Bash(rm -rf frontend/dist)",
+      "Bash(npx create-docusaurus@latest . classic --typescript=ts --package-manager=npm)",
+      "Bash(npx create-docusaurus@latest . classic --typescript --package-manager=npm)",
+      "Bash(npx create-docusaurus@latest frontend classic --typescript)",
+      "Bash(rm -rf frontend)",
+      "Bash(mkdir -p frontend/src/css)",
+      "Bash(npm install)",
+      "Bash(git add .gitignore README.md docusaurus.config.ts sidebars.ts frontend/docusaurus.config.js frontend/src/ frontend/docs/ backend/)",
+      "Bash(dir)",
+      "Bash(findstr nvm)",
+      "Bash(ren docusaurus.config.ts docusaurus.config.ts.DISABLED)",
+      "Bash(move docusaurus.config.ts docusaurus.config.ts.DISABLED)",
+      "Bash(cmd /c \"ren docusaurus.config.ts docusaurus.config.ts.DISABLED\")",
+      "Bash(findstr docusaurus)",
+      "Bash(powershell Rename-Item -Path \"docusaurus.config.ts\" -NewName \"docusaurus.config.ts.DISABLED\")"
     ],
     "deny": [],
     "ask": []
