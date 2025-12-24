@@ -21,7 +21,18 @@ const config = {
   projectName: 'AI_BOOK', // Usually your repo name.
 
   onBrokenLinks: 'warn', // Changed from 'throw' to 'warn' to prevent build failures
-  onBrokenMarkdownLinks: 'warn', // Changed from 'throw' to 'warn' to prevent build failures
+
+  markdown: {
+    mermaid: true,
+    mdx1Compat: {
+      comments: true,
+      admonitions: true,
+      headingIds: true,
+    },
+    hooks: {
+      onBrokenMarkdownLinks: 'warn', // Moved from top level to markdown.hooks
+    },
+  },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
