@@ -1,38 +1,30 @@
 // @ts-check
-// `@type` JSDoc annotations allow IDEs and type checkers to type-check this file
-// even if they don't support TypeScript syntax yet.
-// There's no need to convert this file to TypeScript immediately.
+// `@type` JSDoc annotations allow editor autocompletion and type checking
+// (when paired with `@ts-check`).
+// There are various equivalent ways to declare your Docusaurus config.
+// See: https://docusaurus.io/docs/api/docusaurus-config
+
+import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'AI BOOK',
-  tagline: 'Physical AI & Humanoid Robotics',
+  title: 'Physical AI & Humanoid Robotics',
+  tagline: 'Comprehensive 13-Week Course for Industry Practitioners',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-ai-book-site.vercel.app',
+  url: 'https://ameen-alam.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/Physical-AI-Humanoid-Robotics-Textbook/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'AI-Book-Project', // Usually your GitHub org/user name.
-  projectName: 'AI_BOOK', // Usually your repo name.
+  organizationName: 'ameen-alam', // Usually your GitHub org/user name.
+  projectName: 'Physical-AI-Humanoid-Robotics-Textbook', // Usually your repo name.
 
-  onBrokenLinks: 'warn', // Changed from 'throw' to 'warn' to prevent build failures
-
-  markdown: {
-    mermaid: true,
-    mdx1Compat: {
-      comments: true,
-      admonitions: true,
-      headingIds: true,
-    },
-    hooks: {
-      onBrokenMarkdownLinks: 'warn', // Moved from top level to markdown.hooks
-    },
-  },
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -48,15 +40,21 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/ameen-alam/Physical-AI-Humanoid-Robotics-Textbook/tree/main/',
         },
-        blog: false, // Disabled as per requirements
+        blog: false, // Disable blog for textbook
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: './src/css/custom.css',
+        },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
         },
       }),
     ],
@@ -68,9 +66,9 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'AI BOOK',
+        title: 'Physical AI & Humanoid Robotics',
         logo: {
-          alt: 'AI BOOK Logo',
+          alt: 'Physical AI Logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -78,10 +76,10 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Book',
+            label: 'Textbook',
           },
           {
-            href: 'https://github.com/your-username/ai-book',
+            href: 'https://github.com/ameen-alam/Physical-AI-Humanoid-Robotics-Textbook',
             label: 'GitHub',
             position: 'right',
           },
@@ -91,24 +89,24 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Documentation',
             items: [
               {
-                label: 'Book Chapters',
-                to: '/docs/AI_BOOK/01-Introduction-Physical-AI',
+                label: 'Introduction',
+                to: '/docs/intro',
+              },
+              {
+                label: 'Setup Guides',
+                to: '/docs/setup/workstation',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Resources',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'Glossary',
+                to: '/docs/references/glossary',
               },
             ],
           },
@@ -117,18 +115,59 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/ameen-alam/Physical-AI-Humanoid-Robotics-Textbook',
+              },
+              {
+                label: 'Project Constitution',
+                href: 'https://github.com/ameen-alam/Physical-AI-Humanoid-Robotics-Textbook/blob/main/.specify/memory/constitution.md',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} AI BOOK Project. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Textbook. Built with Docusaurus.`,
       },
       prism: {
-        theme: require('prism-react-renderer').themes.github,
-        darkTheme: require('prism-react-renderer').themes.dracula,
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
+        additionalLanguages: ['python', 'bash', 'yaml'],
       },
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
+      // Algolia DocSearch configuration
+      // Note: Replace with actual Algolia credentials when ready
+      algolia: {
+        // The application ID provided by Algolia
+        appId: 'YOUR_APP_ID',
+        // Public API key: it is safe to commit it
+        apiKey: 'YOUR_SEARCH_API_KEY',
+        indexName: 'physical-ai-textbook',
+        // Optional: see doc section below
+        contextualSearch: true,
+        // Optional: Algolia search parameters
+        searchParameters: {
+          attributesToRetrieve: [
+            'hierarchy',
+            'content',
+            'url',
+            'week',
+            'module',
+            'capstone_component'
+          ],
+        },
+        // Optional: path for search page that enabled by default (`false` to disable it)
+        searchPagePath: 'search',
+      },
+      metadata: [
+        {name: 'keywords', content: 'robotics, physical AI, humanoid robots, ROS 2, Isaac Sim, VLA'},
+        {name: 'description', content: 'Comprehensive 13-week textbook for industry practitioners learning Physical AI and Humanoid Robotics'},
+        {property: 'og:title', content: 'Physical AI & Humanoid Robotics Textbook'},
+        {property: 'og:description', content: 'Master Physical AI, ROS 2, Digital Twins, and Humanoid Robotics in 13 weeks'},
+        {property: 'og:type', content: 'website'},
+      ],
     }),
 };
 
-module.exports = config;
+export default config;
