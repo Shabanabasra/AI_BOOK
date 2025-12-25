@@ -21,7 +21,10 @@
       "Bash(move docusaurus.config.ts docusaurus.config.ts.DISABLED)",
       "Bash(cmd /c \"ren docusaurus.config.ts docusaurus.config.ts.DISABLED\")",
       "Bash(findstr docusaurus)",
-      "Bash(powershell Rename-Item -Path \"docusaurus.config.ts\" -NewName \"docusaurus.config.ts.DISABLED\")"
+      "Bash(powershell Rename-Item -Path \"docusaurus.config.ts\" -NewName \"docusaurus.config.ts.DISABLED\")",
+      "Bash(dir docs /s)",
+      "Bash(tree docs)",
+      "Bash(powershell \"Get-ChildItem -Path docs -Recurse -Include *.md,*.mdx\")"
     ],
     "deny": [],
     "ask": []
