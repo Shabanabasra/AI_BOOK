@@ -1,7 +1,8 @@
-import type {ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
+import RAGChatbot from '../RAGChatbot'; // yahan import karein
 
 type FeatureItem = {
   title: string;
@@ -42,7 +43,7 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, Svg, description }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
@@ -64,6 +65,11 @@ export default function HomepageFeatures(): ReactNode {
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
+        </div>
+
+        {/* Yahan RAGChatbot include karein */}
+        <div style={{ marginTop: '50px' }}>
+          <RAGChatbot />
         </div>
       </div>
     </section>

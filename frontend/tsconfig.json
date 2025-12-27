@@ -1,23 +1,7 @@
 {
+  "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "target": "ES6",
-    "module": "ESNext",
-    "lib": ["DOM", "ESNext"],
-    "allowJs": true,
-    "checkJs": false,
-    "jsx": "react-jsx",
-    "moduleResolution": "node",
-    "baseUrl": "./src",
-    "paths": {
-      "@site/*": ["*"]
-    },
-    "strict": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "ignoreDeprecations": "6.0",
-    "outDir": "./dist",
-    "rootDir": "./src"
-  },
-  "include": ["src"]
+    "ignoreDeprecations": "6.0"
+  }
 }
