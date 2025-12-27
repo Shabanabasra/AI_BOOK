@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FormEvent } from 'react';
+import React, { useState, FormEvent } from 'react';
 
 // Define message type
 type MessageType = {
@@ -12,11 +12,16 @@ type MessageType = {
 const apiService = {
   async sendChatMessage(question: string) {
     try {
-      const backendUrl = process.env.REACT_APP_API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
-      const response = await fetch(`${backendUrl}/api/v1/chat`, {
+      // Directly using deployed backend URL
+      const backendUrl = 'https://ai-book-backend.vercel.app';
+      const response = await fetch(`${backendUrl}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question }),
+        body: JSON.stringify({
+          question,
+          session_id: 'test-session',
+          top_k: 5,
+        }),
       });
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       return await response.json();
@@ -29,19 +34,23 @@ const apiService = {
 
 // Single message component
 const Message = ({ message }: { message: MessageType }) => (
-  <div style={{
-    display: 'flex',
-    justifyContent: message.sender === 'user' ? 'flex-end' : 'flex-start',
-    marginBottom: '10px'
-  }}>
-    <div style={{
-      backgroundColor: message.sender === 'user' ? '#007bff' : '#e9ecef',
-      color: message.sender === 'user' ? 'white' : 'black',
-      padding: '8px 12px',
-      borderRadius: '8px',
-      maxWidth: '80%',
-      wordWrap: 'break-word'
-    }}>
+  <div
+    style={{
+      display: 'flex',
+      justifyContent: message.sender === 'user' ? 'flex-end' : 'flex-start',
+      marginBottom: '10px',
+    }}
+  >
+    <div
+      style={{
+        backgroundColor: message.sender === 'user' ? '#007bff' : '#e9ecef',
+        color: message.sender === 'user' ? 'white' : 'black',
+        padding: '8px 12px',
+        borderRadius: '8px',
+        maxWidth: '80%',
+        wordWrap: 'break-word',
+      }}
+    >
       {message.text}
       {message.references && message.references.length > 0 && (
         <div style={{ fontSize: '0.8em', marginTop: '4px' }}>
@@ -77,27 +86,51 @@ const ChatBox = () => {
       };
       setMessages(prev => [...prev, botMessage]);
     } catch {
-      setMessages(prev => [...prev, { id: `error-${Date.now()}`, text: 'Error fetching response', sender: 'bot' }]);
+      setMessages(prev => [
+        ...prev,
+        { id: `error-${Date.now()}`, text: 'Error fetching response', sender: 'bot' },
+      ]);
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div style={{ border: '1px solid #ddd', borderRadius: '8px', padding: '16px', maxHeight: '400px', display: 'flex', flexDirection: 'column' }}>
+    <div
+      style={{
+        border: '1px solid #ddd',
+        borderRadius: '8px',
+        padding: '16px',
+        maxHeight: '400px',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
       <div style={{ flex: 1, overflowY: 'auto', marginBottom: '12px' }}>
-        {messages.map(msg => <Message key={msg.id} message={msg} />)}
+        {messages.map(msg => (
+          <Message key={msg.id} message={msg} />
+        ))}
       </div>
       <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '8px' }}>
         <input
           type="text"
           value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+          onChange={e => setInputValue(e.target.value)}
           placeholder="Ask about the content..."
           style={{ flex: 1, padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }}
         />
-        <button type="submit" disabled={!inputValue.trim() || isLoading} style={{ padding: '8px 16px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px' }}>
-          Send
+        <button
+          type="submit"
+          disabled={!inputValue.trim() || isLoading}
+          style={{
+            padding: '8px 16px',
+            backgroundColor: '#007bff',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+          }}
+        >
+          {isLoading ? 'Asking...' : 'Send'}
         </button>
       </form>
     </div>
