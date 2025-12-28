@@ -1,7 +1,6 @@
 from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
 from typing import List, Dict, Optional
-import asyncio
 import logging
 from rag.retriever import Retriever
 from rag.generator import Generator

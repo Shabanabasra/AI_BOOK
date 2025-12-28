@@ -12,11 +12,10 @@ type MessageType = {
 const apiService = {
   async sendChatMessage(question: string) {
     try {
-      // Correct backend endpoint
       const backendUrl =
         process.env.NODE_ENV === 'development'
-          ? 'http://localhost:8000/api/v1/chat' // local backend
-          : 'https://ai-book-backend.vercel.app/api/v1/chat'; // deployed backend
+          ? 'http://localhost:8000/api/v1/chat'
+          : 'https://ai-book-backend.vercel.app/api/v1/chat';
 
       const response = await fetch(backendUrl, {
         method: 'POST',
@@ -77,7 +76,7 @@ const ChatBox = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
-  // Scroll to bottom when a new message appears
+  // Scroll to bottom when new message appears
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
